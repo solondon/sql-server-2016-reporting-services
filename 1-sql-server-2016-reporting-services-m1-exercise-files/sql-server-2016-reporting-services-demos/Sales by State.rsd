@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>/Data Sources/WideWorldImporters-SSAS-MD</DataSourceReference>
+      <CommandText>SELECT NON EMPTY [Measures].[Sales Total Including Tax] ON COLUMNS
+     , NON EMPTY [City].[State Province].[State Province].Members ON ROWS
+FROM [Wide World Importers]
+</CommandText>
+      <rd:DesignerState>&lt;QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition"&gt;&lt;CommandType&gt;MDX&lt;/CommandType&gt;&lt;Type&gt;Query&lt;/Type&gt;&lt;QuerySpecification xsi:type="MDXQuerySpecification"&gt;&lt;Select&gt;&lt;Items&gt;&lt;Item&gt;&lt;ID xsi:type="Level"&gt;&lt;DimensionName&gt;City&lt;/DimensionName&gt;&lt;HierarchyName&gt;State Province&lt;/HierarchyName&gt;&lt;HierarchyUniqueName&gt;[City].[State Province]&lt;/HierarchyUniqueName&gt;&lt;LevelName&gt;State Province&lt;/LevelName&gt;&lt;UniqueName&gt;[City].[State Province].[State Province]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;State Province&lt;/ItemCaption&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Measure"&gt;&lt;MeasureName&gt;Sales Total Including Tax&lt;/MeasureName&gt;&lt;UniqueName&gt;[Measures].[Sales Total Including Tax]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Sales Total Including Tax&lt;/ItemCaption&gt;&lt;FormattedValue&gt;true&lt;/FormattedValue&gt;&lt;/Item&gt;&lt;/Items&gt;&lt;/Select&gt;&lt;From&gt;Wide World Importers&lt;/From&gt;&lt;Filter&gt;&lt;FilterItems /&gt;&lt;/Filter&gt;&lt;Calculations /&gt;&lt;Aggregates /&gt;&lt;QueryProperties /&gt;&lt;/QuerySpecification&gt;&lt;Query&gt;&lt;Statement&gt;SELECT NON EMPTY [Measures].[Sales Total Including Tax] ON COLUMNS
+     , NON EMPTY [City].[State Province].[State Province].Members ON ROWS
+FROM [Wide World Importers]
+&lt;/Statement&gt;&lt;ParameterDefinitions /&gt;&lt;/Query&gt;&lt;/QueryDefinition&gt;</rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="State_Province">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[City].[State Province].[State Province]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Sales_Total_Including_Tax">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Sales Total Including Tax]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+  <rd:ReportServerUrl>http://localhost/ReportServer</rd:ReportServerUrl>
+</SharedDataSet>

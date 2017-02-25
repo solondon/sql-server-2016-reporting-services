@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>/Data Sources/WideWorldImporters-SSAS-MD</DataSourceReference>
+      <CommandText>// WWI Cube State Employee Sales Data
+WITH 
+  MEMBER [Measures].[Beginning Of Month DateTime] AS  
+    CDATE( [Invoice Date].[Calendar Beginning Time Period].CurrentMember.Name )
+SELECT NON EMPTY { [Measures].[Sales Total Including Tax] 
+                 , [Measures].[Beginning Of Month DateTime]
+                 }
+       ON COLUMNS 
+     , NON EMPTY [City].[State Province].[State Province].Members
+                 * [Employee].[Employee].[Employee].Members
+                 * [Invoice Date].[Calendar Beginning Time Period].[Beginning Of Month].Members  
+                 HAVING NOT IsEmpty([Measures].[Sales Total Including Tax])
+       ON ROWS 
+  FROM [Wide World Importers]
+;
+</CommandText>
+      <rd:DesignerState>&lt;QueryDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/AnalysisServices/QueryDefinition"&gt;&lt;CommandType&gt;MDX&lt;/CommandType&gt;&lt;Type&gt;Query&lt;/Type&gt;&lt;QuerySpecification xsi:type="MDXQuerySpecification"&gt;&lt;Select&gt;&lt;Items&gt;&lt;Item&gt;&lt;ID xsi:type="Level"&gt;&lt;DimensionName&gt;City&lt;/DimensionName&gt;&lt;HierarchyName&gt;State Province&lt;/HierarchyName&gt;&lt;HierarchyUniqueName&gt;[City].[State Province]&lt;/HierarchyUniqueName&gt;&lt;LevelName&gt;State Province&lt;/LevelName&gt;&lt;UniqueName&gt;[City].[State Province].[State Province]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;State Province&lt;/ItemCaption&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Level"&gt;&lt;DimensionName&gt;Employee&lt;/DimensionName&gt;&lt;HierarchyName&gt;Employee&lt;/HierarchyName&gt;&lt;HierarchyUniqueName&gt;[Employee].[Employee]&lt;/HierarchyUniqueName&gt;&lt;LevelName&gt;Employee&lt;/LevelName&gt;&lt;UniqueName&gt;[Employee].[Employee].[Employee]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Employee&lt;/ItemCaption&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Level"&gt;&lt;DimensionName&gt;Invoice Date&lt;/DimensionName&gt;&lt;HierarchyName&gt;Calendar Beginning Time Period&lt;/HierarchyName&gt;&lt;HierarchyUniqueName&gt;[Invoice Date].[Calendar Beginning Time Period]&lt;/HierarchyUniqueName&gt;&lt;LevelName&gt;Year&lt;/LevelName&gt;&lt;UniqueName&gt;[Invoice Date].[Calendar Beginning Time Period].[Year]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Year&lt;/ItemCaption&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Level"&gt;&lt;DimensionName&gt;Invoice Date&lt;/DimensionName&gt;&lt;HierarchyName&gt;Calendar Beginning Time Period&lt;/HierarchyName&gt;&lt;HierarchyUniqueName&gt;[Invoice Date].[Calendar Beginning Time Period]&lt;/HierarchyUniqueName&gt;&lt;LevelName&gt;Beginning Of Quarter&lt;/LevelName&gt;&lt;UniqueName&gt;[Invoice Date].[Calendar Beginning Time Period].[Beginning Of Quarter]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Beginning Of Quarter&lt;/ItemCaption&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Level"&gt;&lt;DimensionName&gt;Invoice Date&lt;/DimensionName&gt;&lt;HierarchyName&gt;Calendar Beginning Time Period&lt;/HierarchyName&gt;&lt;HierarchyUniqueName&gt;[Invoice Date].[Calendar Beginning Time Period]&lt;/HierarchyUniqueName&gt;&lt;LevelName&gt;Beginning Of Month&lt;/LevelName&gt;&lt;UniqueName&gt;[Invoice Date].[Calendar Beginning Time Period].[Beginning Of Month]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Beginning Of Month&lt;/ItemCaption&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Measure"&gt;&lt;MeasureName&gt;Sales Total Including Tax&lt;/MeasureName&gt;&lt;UniqueName&gt;[Measures].[Sales Total Including Tax]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Sales Total Including Tax&lt;/ItemCaption&gt;&lt;FormattedValue&gt;true&lt;/FormattedValue&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID xsi:type="Measure"&gt;&lt;MeasureName&gt;Beginning Of Month DateTime&lt;/MeasureName&gt;&lt;UniqueName&gt;[Measures].[Beginning Of Month DateTime]&lt;/UniqueName&gt;&lt;/ID&gt;&lt;ItemCaption&gt;Beginning Of Month DateTime&lt;/ItemCaption&gt;&lt;FormattedValue&gt;true&lt;/FormattedValue&gt;&lt;/Item&gt;&lt;/Items&gt;&lt;/Select&gt;&lt;From&gt;Wide World Importers&lt;/From&gt;&lt;Filter&gt;&lt;FilterItems /&gt;&lt;/Filter&gt;&lt;Calculations /&gt;&lt;Aggregates /&gt;&lt;QueryProperties /&gt;&lt;/QuerySpecification&gt;&lt;Query&gt;&lt;Statement&gt;// WWI Cube State Employee Sales Data
+WITH 
+  MEMBER [Measures].[Beginning Of Month DateTime] AS  
+    CDATE( [Invoice Date].[Calendar Beginning Time Period].CurrentMember.Name )
+SELECT NON EMPTY { [Measures].[Sales Total Including Tax] 
+                 , [Measures].[Beginning Of Month DateTime]
+                 }
+       ON COLUMNS 
+     , NON EMPTY [City].[State Province].[State Province].Members
+                 * [Employee].[Employee].[Employee].Members
+                 * [Invoice Date].[Calendar Beginning Time Period].[Beginning Of Month].Members  
+                 HAVING NOT IsEmpty([Measures].[Sales Total Including Tax])
+       ON ROWS 
+  FROM [Wide World Importers]
+;
+&lt;/Statement&gt;&lt;ParameterDefinitions /&gt;&lt;/Query&gt;&lt;/QueryDefinition&gt;</rd:DesignerState>
+    </Query>
+    <Fields>
+      <Field Name="State_Province">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[City].[State Province].[State Province]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Employee">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Employee].[Employee].[Employee]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Year">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Invoice Date].[Calendar Beginning Time Period].[Year]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Beginning_Of_Quarter">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Invoice Date].[Calendar Beginning Time Period].[Beginning Of Quarter]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Beginning_Of_Month">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Level" UniqueName="[Invoice Date].[Calendar Beginning Time Period].[Beginning Of Month]" /&gt;</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Sales_Total_Including_Tax">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Sales Total Including Tax]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Beginning_Of_Month_DateTime">
+        <DataField>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;Field xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="Measure" UniqueName="[Measures].[Beginning Of Month DateTime]" /&gt;</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+  <rd:ReportServerUrl>http://localhost/ReportServer</rd:ReportServerUrl>
+</SharedDataSet>

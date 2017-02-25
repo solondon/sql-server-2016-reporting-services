@@ -1,0 +1,9 @@
+This is a manifest of the files for the demos included in the What's New in SSRS 2016 course.
+
+ps-logo.zip - The file used in the branding demo.
+
+NASiteWithReport.zip - The demo website used to show the concept of embedded reports.
+
+whats-new-in-ssrs2016-demos.zip - The reports and dataset files used in the course.
+
+WWI-SSASMD_abf.zip - The backup of the Analysis Services database used in the demos. 
